@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title>Rock.Paper.Scissors</title>
     </head>
     <body>
-        <div id= "score>"></div>
+        <div id="score"></div>
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
@@ -15,10 +16,18 @@
     let playerScore = 0;
     let computerScore = 0;
     let options = ["rock", "paper", "scissors"];
+
+    let rockChoice = document.getElementById("rock");
+    let paperChoice = document.getElementById("paper");
+    let scissorsChoice = document.getElementById("scissors");
+
+    rockChoice.addEventListener("click", choice1);
+    paperChoice.addEventListener("click", choice2);
+    scissorsChoice.addEventListener("click", choice3);
     
     function computerPlay() {
-        let randomNumber = Math.floor(Math.random()*3 )
-        return  options[random];
+        let randomNumber = Math.floor(Math.random() * 3);
+        return options[randomNumber]; 
     }
     
     function choice1(){
@@ -56,13 +65,22 @@
         }
         else if(playerSelection=="paper" && computerSelection=="scissors"){
             computerScore+=1;
-            console.log("You lose! Scisoors beat paper!");
+            console.log("You lose! Scissors beat paper!");
         }
-        else console.log("It's a tie");
-        if(playerScore==3 || computerScore==3){
-            console.log("Game Over!");
+        else console.log("It's a tie!");
+        
+        if(playerScore==3){
+            console.log("Game Over! You win!!");
+            rockChoice.removeEventListener("click", choice1);
+		    paperChoice.removeEventListener("click", choice2);
+		    scissorsChoice.removeEventListener("click", choice3);
+		    
         }
-    }
+
+        if(computerScore==3){
+            console.log("Game Over! Computer wins!!");
+        }
+    } 
 
     </script>
     </body>

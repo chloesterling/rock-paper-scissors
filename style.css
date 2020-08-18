@@ -1,0 +1,10 @@
+button {
+    align-items: center;
+    height: 30px;
+    min-width: 75px;
+    font-size: 22px;
+    text-align: center;
+    padding-bottom: 2rem;
+    font-family: papyrus;
+    color: teal;   
+}
