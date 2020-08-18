@@ -1,3 +1,68 @@
-<script>
-    console.log();
-</script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="stylesheet" href="style.css">
+        <title>Rock.Paper.Scissors</title>
+    </head>
+    <body>
+        <div id= "score>"></div>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    
+    <script>
+    
+    let playerScore = 0;
+    let computerScore = 0;
+    let options = ["rock", "paper", "scissors"];
+    
+    function computerPlay() {
+        let randomNumber = Math.floor(Math.random()*3 )
+        return  options[random];
+    }
+    
+    function choice1(){
+        return playRound("rock", computerPlay());
+    }
+    
+    function choice2(){
+        return playRound("paper", computerPlay());
+    }
+    
+    function choice3(){
+        return playRound("scissors", computerPlay());
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection=="scissors" && computerSelection=="rock") {
+            computerScore+=1;
+            console.log("You lose! Rock beats scissors!");
+        }
+        else if(playerSelection=="scissors" && computerSelection=="paper"){
+            playerScore+=1;
+            console.log("You win! Scissors beat paper!");
+        }
+        else if(playerSelection=="rock" && computerSelection=="paper"){
+            computerScore+=1;
+            console.log("You lose! Paper beats rock!");
+        }
+        else if(playerSelection=="rock" && computerSelection=="scissors"){
+            playerScore+=1;
+            console.log("You win! Rock beats scissors!");
+        }
+        else if(playerSelection=="paper" && computerSelection=="rock"){
+            playerScore+=1;
+            console.log("You win! Paper beats rock!");
+        }
+        else if(playerSelection=="paper" && computerSelection=="scissors"){
+            computerScore+=1;
+            console.log("You lose! Scisoors beat paper!");
+        }
+        else console.log("It's a tie");
+        if(playerScore==3 || computerScore==3){
+            console.log("Game Over!");
+        }
+    }
+
+    </script>
+    </body>
